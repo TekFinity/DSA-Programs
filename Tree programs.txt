@@ -1,0 +1,20 @@
+// Level of tree using LOT
+int level = -1;
+ int LevelOrderTraverse(){
+	Queue<Node> q= new Queue<Node>();
+	q.enqueue(root);
+	Node dummy = new Node("$");
+	q.enqueue(dummy);
+	while(q.count!= 0){
+		Node temp = q.dequeue();
+		if(temp.data =="$"){
+			level++;
+			if(q.count!==0){
+				q.enqueue(dummy);
+			}
+		if(temp.left!=null) q.enqueue(root.left);
+		if(temp.right!=null) q.enqueue(root.right);
+		}
+	}
+
+}
